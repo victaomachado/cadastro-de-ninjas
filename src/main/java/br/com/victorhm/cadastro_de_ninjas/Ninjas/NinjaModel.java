@@ -1,6 +1,8 @@
-package br.com.victorhm.cadastro_de_ninjas;
+package br.com.victorhm.cadastro_de_ninjas.Ninjas;
 
+import br.com.victorhm.cadastro_de_ninjas.Missoes.MissoesModel;
 import jakarta.persistence.*;
+
 
 @Entity
 @Table(name = "tb_cadastro")
@@ -12,6 +14,10 @@ public class NinjaModel {
     private String nome;
     private String email;
     private int idade;
+
+    @ManyToOne
+    @JoinColumn(name = "missoes_id") // Foreign Key
+    private MissoesModel missoes;
 
     public NinjaModel(String nome, String email, int idade) {
         this.nome = nome;
